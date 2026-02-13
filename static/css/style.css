@@ -1,0 +1,249 @@
+:root {
+    --bg-color: #f4f7f6;
+    /* Fallback */
+    --card-bg: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --accent-color: #4a90e2;
+    --weak-color: #ff4d4d;
+    --medium-color: #ffbf00;
+    --strong-color: #2ecc71;
+    --border-radius: 16px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box_sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+
+    /* Interactive Background */
+    background: linear-gradient(-45deg, #e0eaee, #dfe9f3, #ffffff, #ece9e6);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: #2c3e50;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 24px;
+    width: 100%;
+    /* Ensure full width */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    display: block;
+    /* Fix for some inline-block quirks */
+    padding: 16px 20px;
+    padding-right: 50px;
+    /* Space for the eye icon */
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: #fafafa;
+    color: #333;
+}
+
+input:focus {
+    border-color: var(--accent-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.15);
+}
+
+#togglePassword {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #95a5a6;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0;
+    display: flex;
+    /* Fix alignment */
+    align-items: center;
+    justify-content: center;
+}
+
+#togglePassword:hover {
+    color: var(--text-primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.strength-meter {
+    height: 10px;
+    background-color: #edf2f7;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.4s ease;
+}
+
+.strength-text {
+    font-weight: 700;
+    margin-bottom: 24px;
+    min-height: 24px;
+    font-size: 16px;
+}
+
+.feedback-area {
+    text-align: left;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--accent-color);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: none;
+    /* hidden by default */
+}
+
+.feedback-area.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feedback-area.hidden {
+    display: none;
+}
+
+/* Ensure JS class toggling works with new structure */
+.feedback-area:not(.hidden) {
+    display: block;
+    animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feedback-area h3 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #34495e;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.feedback-area ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.feedback-area li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.4;
+}
+
+.feedback-area li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 13px;
+    color: #95a5a6;
+    opacity: 0.8;
+}
+
+/* Strength Colors with Gradients */
+.weak {
+    background: linear-gradient(90deg, #ff4d4d, #f32c2c);
+}
+
+.medium {
+    background: linear-gradient(90deg, #ffbf00, #f39c12);
+}
+
+.strong {
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+}

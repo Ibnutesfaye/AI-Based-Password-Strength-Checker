@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Password Strength Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 AI Password Strength Checker</h1>
+            <p>Evaluate your password security in real-time using Machine Learning.</p>
+        </header>
+
+        <div class="card">
+            <div class="input-group">
+                <input type="text" id="passwordInput" placeholder="Enter your password..." autocomplete="off">
+                <button id="togglePassword" aria-label="Toggle Password Visibility">👁️</button>
+            </div>
+            
+            <div class="strength-meter">
+                <div class="strength-bar" id="strengthBar"></div>
+            </div>
+            <p id="strengthText" class="strength-text">Enter a password to check</p>
+
+            <div id="feedbackArea" class="feedback-area hidden">
+                <h3>💡 Suggestions to Improve:</h3>
+                <ul id="suggestionsList"></ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by Python, Flask & Scikit-Learn</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
