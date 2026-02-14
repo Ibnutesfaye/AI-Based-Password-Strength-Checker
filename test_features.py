@@ -33,7 +33,7 @@ if count_safe == 0:
 else:
     print("⚠️ Unexpected: Random password found in breach (or API error).")
 
-# 3. Dynamic Feedback Test
+# 3. Dynamic Feedback Tes
 print("\n--- Testing Dynamic Feedback ---")
 # Score 0, Breached
 fb = app.get_dynamic_feedback("123456", 0, 1000)
