@@ -8,7 +8,7 @@ A full-stack web application that evaluates password security using Machine Lear
 - **Granular Scoring (0-100)**: Sophisticated scoring mechanism combining AI predictions, Shannon entropy, and heuristic security rules.
 - **Data Breach Check**: Integration with the "Have I Been Pwned" API using k-anonymity (secure hashing) to warn if a password has been leaked previously.
 - **Dynamic Real-Time Feedback**: Intelligent suggestions that update as you type, only showing what's actually missing.
-- **Modern Interactive UI**: 
+- **Modern Interactive UI**:
   - Dynamic strength meter (Red $\rightarrow$ Orange $\rightarrow$ Green).
   - Animated gradient background.
   - Interactive card lifting effects.
@@ -30,12 +30,14 @@ A full-stack web application that evaluates password security using Machine Lear
 ## ⚙️ Installation & Setup
 
 1. **Clone the repository**:
+
    ```bash
    git clone <your-repo-url>
    cd AI-Based-Password-Strength-Checker
    ```
 
 2. **Create and activate a virtual environment**:
+
    ```bash
    python -m venv .venv
    # Windows:
@@ -45,6 +47,7 @@ A full-stack web application that evaluates password security using Machine Lear
    ```
 
 3. **Install dependencies**:
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -57,7 +60,9 @@ A full-stack web application that evaluates password security using Machine Lear
 ## 🏃 Running the Application
 
 1. **Start the Flask server**:
+
    ```bash
+
    python app.py
    ```
 
@@ -67,6 +72,7 @@ A full-stack web application that evaluates password security using Machine Lear
 ## 🧪 Testing
 
 You can verify the backend logic (Entropy, API, AI) independently by running:
+
 ```bash
 python test_features.py
 ```
@@ -78,4 +84,5 @@ python test_features.py
 - It detects common weak patterns via the AI model.
 
 ---
-*Created as a demonstration of AI application in Cybersecurity.*
+
+_Created as a demonstration of AI application in Cybersecurity._
